@@ -13,6 +13,7 @@ You can add the package to your project file -> Swift Package -> Add Package Dep
 ```
 
 
+Please note thar it is recommanded to place it as last modifier for ScrollView, otherwise , you will have some unexpected errors .
 
 ```swift
 import SwiftUI
