@@ -2,7 +2,6 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 @available(macOS 10.15, *)
-
 public extension View {
     /// ViewModifier mainly for ScrollView to add UIRefreshControl on top and perform action when refreshing is finishing
     /// - Parameters:
@@ -44,6 +43,7 @@ public struct RefreshableScrollView<Content: View>: UIViewRepresentable {
         self.text = text
     }
 
+  
     public func makeUIView(context: Context) -> UIScrollView {
         let scrollView = UIScrollView()
 
@@ -71,14 +71,12 @@ public struct RefreshableScrollView<Content: View>: UIViewRepresentable {
 
         return scrollView
     }
-
     
     public func updateUIView(_ uiView: UIScrollView, context: Context) {
         uiView.backgroundColor = backgroundColor.uiColor()
         context.coordinator.parent.backgroundColor = backgroundColor
     }
     
-
     public func makeCoordinator() -> Coordinator {
         Coordinator(parent: self)
     }
@@ -95,11 +93,13 @@ public struct RefreshableScrollView<Content: View>: UIViewRepresentable {
 }
 
 // MARK:- Color -> uiColor()
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 @available(macOS 10.15, *)
 extension Color {
     func uiColor() -> UIColor {
-       
+        if #available(iOS 14.0, *) {
+            return UIColor(self)
+        }
         let components = self.components()
         return UIColor(red: components.r, green: components.g, blue: components.b, alpha: components.a)
     }
@@ -120,4 +120,3 @@ extension Color {
         return (r, g, b, a)
     }
 }
-
