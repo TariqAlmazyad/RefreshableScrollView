@@ -11,3 +11,35 @@ You can add the package to your project file -> Swift Package -> Add Package Dep
 ```swift
 .package(url: "https://github.com/TariqAlmazyad/RefreshableScrollView.git")
 ```
+
+
+<h3>How to use ?</h3>
+```swift
+import SwiftUI
+import RefreshableScrollView
+
+struct ContentView: View {
+    
+    @State private (set) var primaryColor = Color(#colorLiteral(red: 0.1601605713, green: 0.1644997299, blue: 0.186186552, alpha: 1))
+    var body: some View {
+        ScrollView(.vertical, showsIndicators: false, content: {
+            LazyVGrid(columns: [ GridItem(.adaptive(minimum: 100, maximum: 200)), ]) {
+                ForEach(0..<100) { num in
+                    Text("\(num)")
+                        .font(.system(size: 24, weight: .light, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding()
+                        .overlay(Circle().stroke(Color.white, lineWidth: 0.2))
+                }
+            }.padding(.top, 26)
+        }).background(primaryColor.ignoresSafeArea())
+        // recommanded to place it as last modifier for ScrollView 
+        .onRefresh(spinningColor: .white, text: "Pull to refresh", textColor: .white, backgroundColor: primaryColor) { refreshControl in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                refreshControl.endRefreshing()
+            }
+        }
+    }
+}
+
+```
