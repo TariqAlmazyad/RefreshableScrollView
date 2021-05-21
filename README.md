@@ -20,7 +20,7 @@ import RefreshableScrollView
 
 struct ContentView: View {
     
-    @State private (set) var primaryColor = Color(#colorLiteral(red: 0.1601605713, green: 0.1644997299, blue: 0.186186552, alpha: 1))
+    @State private (set) var primaryColor = .white
     var body: some View {
         ScrollView(.vertical, showsIndicators: false, content: {
             LazyVGrid(columns: [ GridItem(.adaptive(minimum: 100, maximum: 200)), ]) {
