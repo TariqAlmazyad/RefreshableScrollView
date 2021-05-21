@@ -13,7 +13,7 @@ You can add the package to your project file -> Swift Package -> Add Package Dep
 ```
 
 
-<h3>How to use ?</h3>
+
 ```swift
 import SwiftUI
 import RefreshableScrollView
