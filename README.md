@@ -3,9 +3,7 @@
 SwiftUI is very new when it comes to completion like UIKit. Apple has forgotten to include simple idea like "Pull to refresh" in UIScrollView . 
 This Swift package is for your to cover this up
 
-![refreshableScrollView](https://user-images.githubusercontent.com/34104180/119067311-72890400-b9ea-11eb-8028-b3780552166c.gif)
-
-
+![refreshableScrollView](https://user-images.githubusercontent.com/34104180/119067744-618cc280-b9eb-11eb-9066-8364f54bddb4.gif)
 
 
 You can add the package to your project file -> Swift Package -> Add Package Dependcy :
